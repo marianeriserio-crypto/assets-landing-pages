@@ -4,13 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>O que dizem nossos pacientes</title>
+
   <style>
-    * { box-sizing: border-box; }
-    html, body {
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
       margin: 0;
       min-height: 100%;
-      background: #000;
+      background: transparent;
     }
+
     body {
       display: grid;
       min-height: 100vh;
@@ -18,36 +24,87 @@
       padding: 24px;
       place-items: center;
     }
-    .video-pacientes {
+
+    .video-depoimento {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .video-depoimento__capa {
       display: block;
       width: 100%;
-      max-width: 640px;
+      margin: 0;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    .video-depoimento__capa img {
+      display: block;
+      width: 100%;
+      height: auto;
+      background: transparent;
+    }
+
+    .video-depoimento__player {
+      display: block;
+      width: 100%;
       height: auto;
       max-height: 80vh;
       max-height: 80dvh;
-      margin: 0 auto;
       object-fit: contain;
-      background: #000;
+    }
+
+    [hidden] {
+      display: none !important;
     }
   </style>
 </head>
+
 <body>
-  <video
-    class="video-pacientes"
-    style="display:block;width:100%;max-width:640px;height:auto;max-height:80vh;margin:0 auto;object-fit:contain;"
-    controls
-    playsinline
-    preload="metadata"
-    aria-label="Depoimentos dos nossos pacientes"
-  >
-    <source
-      src="https://github.com/marianeriserio-crypto/assets-landing-pages/releases/download/video-pacientes-v1/o-que-dizem-nossos-pacientes.mp4"
-      type="video/mp4"
+  <div class="video-depoimento">
+    <button
+      class="video-depoimento__capa"
+      type="button"
+      aria-label="Reproduzir depoimentos dos nossos pacientes"
     >
-    Seu navegador não consegue reproduzir este vídeo.
-    <a href="https://github.com/marianeriserio-crypto/assets-landing-pages/releases/download/video-pacientes-v1/o-que-dizem-nossos-pacientes.mp4">
-      Baixe o vídeo aqui.
-    </a>
-  </video>
+      <img
+        src="https://raw.githubusercontent.com/marianeriserio-crypto/assets-landing-pages/main/capa.png"
+        alt="Reproduzir depoimentos dos nossos pacientes"
+        width="1584"
+        height="2344"
+      >
+    </button>
+
+    <video
+      class="video-depoimento__player"
+      controls
+      playsinline
+      preload="none"
+      aria-label="Depoimentos dos nossos pacientes"
+      hidden
+    >
+      <source
+        src="https://github.com/marianeriserio-crypto/assets-landing-pages/releases/download/video-pacientes-v1/o-que-dizem-nossos-pacientes.mp4"
+        type="video/mp4"
+      >
+      Seu navegador não consegue reproduzir este vídeo.
+    </video>
+  </div>
+
+  <script>
+    const capa = document.querySelector('.video-depoimento__capa');
+    const player = document.querySelector('.video-depoimento__player');
+
+    capa.addEventListener('click', () => {
+      capa.hidden = true;
+      player.hidden = false;
+      player.play().catch(() => {
+        // Se o navegador bloquear a reprodução automática, os controles ficam disponíveis.
+      });
+    });
+  </script>
 </body>
 </html>
