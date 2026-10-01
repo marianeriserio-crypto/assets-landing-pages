@@ -15,14 +15,18 @@
       display: grid;
       min-height: 100vh;
       min-height: 100dvh;
+      padding: 24px;
       place-items: center;
     }
     .video-pacientes {
       display: block;
       width: 100%;
-      max-width: 1200px;
-      max-height: 100vh;
-      max-height: 100dvh;
+      max-width: 640px;
+      height: auto;
+      max-height: 80vh;
+      max-height: 80dvh;
+      margin: 0 auto;
+      object-fit: contain;
       background: #000;
     }
   </style>
@@ -30,6 +34,7 @@
 <body>
   <video
     class="video-pacientes"
+    style="display:block;width:100%;max-width:640px;height:auto;max-height:80vh;margin:0 auto;object-fit:contain;"
     controls
     playsinline
     preload="metadata"
