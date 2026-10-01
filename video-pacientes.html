@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O que dizem nossos pacientes</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: #000;
+    }
+    body {
+      display: grid;
+      min-height: 100vh;
+      min-height: 100dvh;
+      place-items: center;
+    }
+    .video-pacientes {
+      display: block;
+      width: 100%;
+      max-width: 1200px;
+      max-height: 100vh;
+      max-height: 100dvh;
+      background: #000;
+    }
+  </style>
+</head>
+<body>
+  <video
+    class="video-pacientes"
+    controls
+    playsinline
+    preload="metadata"
+    aria-label="Depoimentos dos nossos pacientes"
+  >
+    <source src="O%20que%20dizem%20nossos%20pacientes.mp4" type="video/mp4">
+    Seu navegador não consegue reproduzir este vídeo.
+    <a href="O%20que%20dizem%20nossos%20pacientes.mp4">Baixe o vídeo aqui.</a>
+  </video>
+</body>
+</html>
